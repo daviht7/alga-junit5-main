@@ -44,7 +44,7 @@ class SaudacaoUtilTest {
 
     @Test
     public void naoDeveLancarException() {
-        assertDoesNotThrow(() -> SaudacaoUtil.saudar(0));
+        assertDoesNotThrow(() -> SaudacaoUtil.saudar(5));
     }
 
 }
