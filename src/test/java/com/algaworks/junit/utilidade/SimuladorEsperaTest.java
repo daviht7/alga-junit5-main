@@ -11,7 +11,7 @@ class SimuladorEsperaTest {
 
     @Test
         //@Disabled("não é mais aplicável")
-    @EnabledIfEnvironmentVariable(named = "ENV", matches = "DEV")
+    @EnabledIfEnvironmentVariable(named = "ENV", matches = "PROD")
     void deveEsperarENaoDarTimeout() {
 
         //Assumptions.assumeTrue("PROD".equals(System.getenv("ENV")), () -> "Abortando testes: Não deve ser executado em PROD");
