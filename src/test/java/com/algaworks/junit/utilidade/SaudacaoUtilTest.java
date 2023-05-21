@@ -17,6 +17,25 @@ class SaudacaoUtilTest {
     }
 
     @Test
+    public void saudarTeste_deveRetornarBoaTarde() {
+
+        String saudacao = SaudacaoUtil.saudar(12);
+        System.out.println(saudacao);
+
+        assertEquals("Boa tarde", saudacao);
+
+    }
+    @Test
+    public void saudarTeste_deveRetornarBoaNoite() {
+
+        String saudacao = SaudacaoUtil.saudar(20);
+        System.out.println(saudacao);
+
+        assertEquals("Boa noite", saudacao);
+
+    }
+
+    @Test
     public void deveLancarException() {
         IllegalArgumentException illegalArgumentException = assertThrows(IllegalArgumentException.class, () -> SaudacaoUtil.saudar(-10));
 
