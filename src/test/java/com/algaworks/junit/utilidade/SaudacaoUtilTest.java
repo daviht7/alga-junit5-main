@@ -1,17 +1,17 @@
 package com.algaworks.junit.utilidade;
 
-import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.DisplayNameGeneration;
+import org.junit.jupiter.api.DisplayNameGenerator;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.function.Executable;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-@DisplayName("Classe de teste de SaudacaoUtil")
+@DisplayNameGeneration(DisplayNameGenerator.ReplaceUnderscores.class)
 class SaudacaoUtilTest {
 
     @Test
-    @DisplayName("Deve saudar com bom dia")
-    public void saudarTeste() {
+    public void Dado_determinado_horario_quando_esse_horario_for_de_manha_deve_retornar_bom_dia() {
 
         String saudacao = SaudacaoUtil.saudar(9);
         System.out.println(saudacao);
@@ -29,6 +29,7 @@ class SaudacaoUtilTest {
         assertEquals("Boa tarde", saudacao);
 
     }
+
     @Test
     public void saudarTeste_deveRetornarBoaNoite() {
 
