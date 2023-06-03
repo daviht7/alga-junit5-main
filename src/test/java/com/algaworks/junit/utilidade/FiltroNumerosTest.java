@@ -1,15 +1,18 @@
 package com.algaworks.junit.utilidade;
 
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.DisplayNameGeneration;
+import org.junit.jupiter.api.DisplayNameGenerator;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 import java.util.List;
 
+@DisplayNameGeneration(DisplayNameGenerator.ReplaceUnderscores.class)
 class FiltroNumerosTest {
 
     @Test
-    public void deveRetornarNumerosPares() {
+    public void deve_Retornar_Numeros_Pares() {
 
         var numeros = Arrays.asList(1, 2, 3, 4);
         var numerosParesEsperados = Arrays.asList(2, 4);
