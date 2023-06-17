@@ -32,27 +32,38 @@ class CalculadoraGanhosTest {
     }
 
     @Test
-    public void deve_calcular_ganhos_quando_houver_bonus_premio() {
-
+    public void dado_um_post_e_autor_quando_calcular_ganhos_entao_deve_retornar_quantidade_de_palavras_no_post() {
         Ganhos ganhos = calculadoraGanhos.calcular(post);
+        Assertions.assertEquals(7, ganhos.getQuantidadePalavras());
+    }
 
+    @Test
+    public void deve_calcular_ganhos_quando_houver_bonus_premio() {
+        Ganhos ganhos = calculadoraGanhos.calcular(post);
         Assertions.assertEquals(new BigDecimal("45"), ganhos.getTotalGanho());
         Assertions.assertEquals(7, ganhos.getQuantidadePalavras());
         Assertions.assertEquals(editor.getValorPagoPorPalavra(), ganhos.getValorPagoPorPalavra());
+    }
 
+    @Test
+    public void dado_um_post_e_autor_quando_calcular_ganhos_entao_deve_retornar_valor_pago_por_palavras_do_autor() {
+        Ganhos ganhos = calculadoraGanhos.calcular(post);
+        Assertions.assertEquals(editor.getValorPagoPorPalavra(), ganhos.getValorPagoPorPalavra());
+    }
+
+    @Test
+    public void dado_um_post_e_autor_quando_calcular_ganhos_entao_deve_retornar_valor_com_bonus() {
+        Ganhos ganhos = calculadoraGanhos.calcular(post);
+        Assertions.assertEquals(new BigDecimal("45"), ganhos.getTotalGanho());
     }
 
     @Test
     public void deve_calcular_ganhos_quando_nao_houver_bonus_premio() {
-
         editor.setPremium(false);
-
         Ganhos ganhos = calculadoraGanhos.calcular(post);
-
         Assertions.assertEquals(new BigDecimal("35"), ganhos.getTotalGanho());
         Assertions.assertEquals(7, ganhos.getQuantidadePalavras());
         Assertions.assertEquals(editor.getValorPagoPorPalavra(), ganhos.getValorPagoPorPalavra());
-
     }
 
 }
